@@ -36,6 +36,8 @@
         <java.compile-version>21</java.compile-version>
 
         <slf4j-version>1.7.25</slf4j-version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
     </properties>
 
 
@@ -64,21 +66,23 @@
         <!-- IDE goals override the defaultGoal -->
         <defaultGoal>clean compile package exec:java</defaultGoal> 
         <plugins>
+
             <plugin>
-                <!-- Select the version of the compiler and binary file -->
-                <!-- format of the classfiles -->
+                <!-- Executes JUnit tests and writes the results as an xml and txt file -->
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
+
+            <plugin>
+                <groupId>com.rimerosolutions.maven.plugins</groupId>
+                <artifactId>wrapper-maven-plugin</artifactId>
+                <version>0.0.4</version>
                 <configuration>
-                    <source>${java.compile-verison}</source>
-                    <target>${java.compile-verison}</target>
-                    <!-- sometimes the IDE does not reveal all the important warning -->
-                    <compilerArgument>-Xlint:all</compilerArgument>
-                    <showWarnings>true</showWarnings>
-                    <showDeprecation>true</showDeprecation>
+                    <mavenVersion>3.3.1</mavenVersion>
                 </configuration>
             </plugin>
+
 
             <plugin>
                 <!-- shade creates an executable jar with the main class -->
