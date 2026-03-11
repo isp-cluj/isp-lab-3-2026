@@ -23,16 +23,21 @@
         <name>Technical University of Cluj-Napoca</name>
     </organization>
 
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <!-- class that has the main method -->
         <mainClass>lab.template.Example</mainClass>
         <!-- name appended to standard jar name to indicate shaded/executable version -->
         <shadedClassifierName>executable</shadedClassifierName>
         <junit-version>4.13.1</junit-version>
-        <java.compile-verison>1.8</java.compile-verison>
+        <!-- Java 21 -->
+        <java.compile-version>21</java.compile-version>
+
         <slf4j-version>1.7.25</slf4j-version>
     </properties>
+
 
     <dependencies>
         <!-- Everyone needs a logger -->
